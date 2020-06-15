@@ -9,7 +9,7 @@ firewall-cmd --zone=public --add-port=21/tcp --permanent
 firewall-cmd --reload
 ```
 
-## vsftpd
+## vsftpd(very secure FTP daemon)
 
 ### 安装
 
