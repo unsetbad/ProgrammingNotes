@@ -20,27 +20,43 @@ yum -y install vsftpd
 ### 添加FTP用户
 
 ```bash
-useradd xxx
+useradd user_name
 ```
 
 ### 设置FTP用户密码
 
 ```bash
-passwd xxx
+passwd user_name
 ```
 
-### 查看FTP用户是否设置不能通过SSH登录，只能使用FTP
+### 设置FTP用户不能通过SSH登录，只能使用FTP
+
+配置文件位置：`/etc/passwd`
 
 ```bash
-vim /etc/passwd
+usermod -s /sbin/nologin user_name
 ```
 
-找到创建的用户把/bin/bash修改为/sbin/nologin
+### 设置FTP用户可以通过SSH登录，不用FTP
 
-设置用户访问权限：
+配置文件位置：`/etc/passwd`
 
 ```bash
-chown -R xxx /path/
+usermod -s /sbin/bash user_name
+```
+
+### 更改用户主目录
+
+```bash
+usermod -d /path user_name
+```
+
+### 删除用户
+
+```bash
+userdel -r user_name
+# 参数解释：
+-r 删除用户及其相关文件或目录，若不删除，再次创建用户时可能会出现用户已存在的问题
 ```
 
 ### 设置vsftpd服务开机启动
