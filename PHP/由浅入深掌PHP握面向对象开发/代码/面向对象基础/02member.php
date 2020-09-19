@@ -22,7 +22,7 @@ class Buyer{
 # 实例化
 $b = new Buyer();
 
-# 属性操作：增上改查
+# 属性操作：增删除改查
 echo $b->money;
 $b->money = 10;
 $b->eyes = 1;
